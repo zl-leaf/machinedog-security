@@ -1,9 +1,9 @@
 FROM maven
 
-VOLUME ["/opt/htdoc/security"]
-
-WORKDIR /opt/htdoc/security
+RUN mkdir -p /opt/htdoc/app
+ADD ./target/security.jar /opt/htdoc/app/
+WORKDIR /opt/htdoc/app
 
 EXPOSE 5555
 
-CMD mvn install && java -jar ./target/security.jar
+CMD java -jar ./security.jar
