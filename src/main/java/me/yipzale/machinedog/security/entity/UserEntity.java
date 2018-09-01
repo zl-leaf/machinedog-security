@@ -1,6 +1,12 @@
 package me.yipzale.machinedog.security.entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class UserEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nickname;
     private String account;

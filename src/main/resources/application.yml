@@ -1,0 +1,16 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: machinedog-security
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url:
+      username:
+      password:
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://machinedog.yipzale.me:1111/eureka/

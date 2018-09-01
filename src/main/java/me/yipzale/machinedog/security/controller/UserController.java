@@ -21,11 +21,13 @@ public class UserController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @RequestMapping(value = "/{userId}/check_login", method = RequestMethod.GET)
     public Object checkLogin(@PathVariable Long userId) {
         ServiceInstance instance = discoveryClient.getLocalServiceInstance();
         logger.info("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", userId:" + userId);
-        UserRepository userRepository = UserRepository.getInstance();
         UserEntity userEntity = userRepository.findById(userId);
         if (null == userEntity) {
             return new ResponseEntity<ErrorModel>(new ErrorModel("user not found", "userId error"), HttpStatus.BAD_REQUEST);
