@@ -1,6 +1,6 @@
 FROM maven
 
-RUN mkdir -p /opt/htdoc/app
+RUN mkdir -p /opt/app
 ADD ./target/security.jar /opt/app/
 WORKDIR /opt/app
 
